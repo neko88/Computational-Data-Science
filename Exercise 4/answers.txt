@@ -1,0 +1,7 @@
+1. As our data is quite large, the plot seems to show that average max temperature can predict population density well.
+It shows that daily average temperatures between 15 - 30 degrees celsius we can predict that population density may fall mostly around
+500 to 3000. Populations prefer a more average temperature rather than living in extreme cold or extreme hot places.
+
+2. Compressed files are meant to reduce overall data size, which can always be beneficial to efficiency.
+Compression results in reduced data file size to store and makes it faster to transmit.
+An uncompressed file is larger in size which would be slower to access.
