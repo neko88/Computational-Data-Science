@@ -1,0 +1,24 @@
+1.Which of the four transforms suggested got you the closest to satisfying the assumptions of a T-test?
+For the t-test, the smallest result was given by the log transform.
+With respect to the Normal test, the square root transform seemed to give the closest result to a normal distribution for weekdays,
+and the log transform gave the closest for the weekend. These results were visually seen by producing a histogram where they had transformed
+the distribution close to normal. In the end, I feel the square-root transform gave the most satisfying results if choosing one transform for both samples.
+It is also noted that np.exp(x) could not give any result as the values were too extreme.
+
+2.We gave imprecise English translations of what the by-week test, and the Mann-Whitney test were actuallytesting. Do the same for the original T-test, and for the transformed data T-test. That is, describe what theconclusion would be if you could reject the null hypothesis in those tests.
+We state the alternative.
+Original T-Test: There are a different number of comments on weekdays compared to weekends.
+Transformed Test:
+    Fix 1: There are a different number of comments on weekdays compared to weekends.
+    Fix 2: The number of comments on weekdays and weekdays for each week differ.
+
+3.Of the four approaches, which do you think actually does a better job of getting an answer for the originalquestion:
+are there a different number of Reddit comments posted on weekdays than on weekends?
+Briefly explain why. (It's not clear to me that there is a single correct answer to this question.)
+I feel the method of transforming the data helps to answer the original question best. We are able to analyze the data and
+see what the distribution is, and choose the appropriate transform to apply that would give us the best results.
+While WhitneyMann U-test and the first t-test gave us very small p-values, it over-looks the distribution of the samples.
+The CLT also gave good results but it was a slight modification to our original question and there are a lot less samples that were used since it was grouped by week.
+
+4.When are more Reddit comments posted in /r/canada, on average weekdays or weekends?
+Weekdays.

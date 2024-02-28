@@ -1,0 +1,35 @@
+ Dataset 1:
+        mean        std        min        max         r
+x   8.717696  12.155517 -22.635878  35.237055  0.950326
+y  12.522874   6.639964  -2.565088  27.384153  0.950326
+The x and y variables show a positive strong linear correlation of .95 with the independent variable having a mean of 12.52 and standard deviation of 6.64.
+
+ Dataset 2:
+       mean        std        min        max         r
+x -0.710787  11.481584 -33.271113     27.647  0.955153
+y -0.748987   6.257918 -18.621804  14.147315  0.955153
+The x and y variables show a positive strong linear correlation of .95 and are wide-spread about the mean with standard deviations of x and y being 11.48 and 6.26.
+
+ Dataset 3:
+       mean       std       min        max         r
+x  0.968907  2.235558 -2.449064   4.518885  0.981937
+y  8.508535  1.149301  6.641734  10.551871  0.981937
+The x and y variables show a positive strong linear correlation of .98 and are tight-packed about the mean with standard deviations of x and y being 2.24 and 1.15.
+
+ Dataset 4:
+        mean        std  min       max         r
+x  49.905086  28.508611  0.0   87.3767 -0.081193
+y  18.553837  16.545896  0.0  44.56504 -0.081193
+The x and y variables show a weak negative linear correlation of -.08 and are wide-spread about the mean with standard deviations of x and y being 28.51 and 16.55.
+
+ Dataset 5:
+        mean        std       min        max         r
+x  49.909994  28.500001  4.337892  91.052863 -0.088236
+y  18.555525  16.540796  0.055498  49.934197 -0.088236
+The x and y variables show a weak negative linear correlation of -.09 and are wide-spread about the mean with standard deviations of x and y being 28.5 and 16.54.
+
+ Dataset 6:
+       mean        std        min        max         r
+x  7.216155  11.921599 -24.333821  35.402139  0.935069
+y  7.602215  11.764382 -22.956357  36.079874  0.935069
+The x and y variables show a positive strong linear correlation of .94 and are wide-spread about the mean with standard deviations of x and y being 11.92 and 11.76.
