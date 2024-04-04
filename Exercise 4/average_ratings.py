@@ -48,7 +48,7 @@ def main():
 
     # Apply matching function
     data_ratings['matched_titles'] = data_ratings['title'].apply(lambda x: find_matches_in(x, movie_list['title']))
-    movie_avg_ratings = pd.DataFrame(data_ratings.groupby('matched_titles')['rating'].mean().round(2),
+    movie_avg_ratings = pd.DataFrame(data_ratings.groupby('matched_titles')['rating']['rating'].mean().round(2),
                                      columns=['rating'])
 
     # Export results

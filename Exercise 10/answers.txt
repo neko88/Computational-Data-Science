@@ -1,0 +1,44 @@
+1. How long did your reddit_averages.py take with
+(1) the reddit-0 data set and effectively no work,
+(2) no schema specified and not caching (on reddit-2 for this and the rest),
+(3) with a schema but not caching,
+(4) with both a schema and caching the twice-used DataFrame?
+
+reddit-0: 17.77s user 1.73s system 169% cpu 11.506 total
+
+non-cached / with schema
+reddit-2: 19.53s user 1.77s system 164% cpu 12.916 total
+
+non-cached / without schema
+reddit-2: 26.92s user 1.98s system 160% cpu 17.977 total
+
+cached / with schema
+reddit-2: 22.81s user 2.05s system 158% cpu 15.639 total
+
+cached / without schema
+reddit-2: 28.01s user 1.89s system 175% cpu 17.013 total
+
+2. Based on the above, does it look like most of the time taken to process the
+reddit-2 data set is in reading the files, or calculating the averages?
+
+Most of the time to process seems to be more influenced by the calculation of averages.
+The results of caching with and without a schema were both higher than both of the non-cached.
+
+3. Where did you use .cache() in your wikipedia_popular.py? [Hint: the answer had better be “once” … but where?]
+The .cache() was used on the dataframe assumed to be same across all wiki files just before each file
+is calculated with their own unique results of timestamp, page, and max view count.
+
+Specifically:
+    filter_data = data.filter(~f.lower(f.col('page')).contains('main_page') &
+                             ~f.lower(f.col('page')).contains('special:') &
+                              f.lower(f.col('lang')).contains('en')).sort('views', ascending=False).cache()
+
+This dataframe is the 'default' dataframe that is preprocessed before finding the max view counts.
+
+The results of caching this dataframe ended up speeding the time taken:
+
+Without caching:
+26.08s user 2.48s system 173% cpu 16.489 total
+With caching:
+23.46s user 2.36s system 184% cpu 14.024 total
+

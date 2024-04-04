@@ -1,0 +1,16 @@
+1. Although we look for our data to be normally distributed, in the real-world it is difficult to obtain a perfectly
+normally distributed data. However we can still get by as long as the distribution is reasonably 'normal enough'.
+With respect to CLT, over time as N increases, data may eventually converge to a more, normal distribution.
+From the histogram of residuals, it looks to be close to normal but not perfect.
+However, since it does appear close to normal and we could expect that as our data increases, it may become more normal,
+the OLS p-value can reasonably conclude that the ratings are increasing (pvalue = 2.9427105540525786e-25 < 5%).
+
+
+2. With the Kalman Smoothing we result with the scores as follows:
+Training score: 0.560414
+Validation score: 0.488193
+
+Even with Kalman smoothing applied, the model does not seem promising as the scores are only around 50%.
+The validation score being lower than the training score indicates that our model is overfitting the data.
+As the model is too specific, it has a difficult time generalizing data points on tested data and cannot effectively predict
+as noise gets mixed into the specifics of the model.

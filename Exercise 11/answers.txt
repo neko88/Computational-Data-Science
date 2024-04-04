@@ -1,0 +1,16 @@
+1.In your reddit_relative.py, what intermediate results did you .cache()?
+Briefly describe what would have happened if you hadn't used .cache() anywhere. (No need to time it, unless you really want to.)
+
+.cache() was used at the point of .join() where the relative score is added to the all comments database.
+As we are working with a large dataset, .join() is generally an expensive action and without caching this line,
+each following action required would have to join the dataframes again.
+.cache()'ing the join should improve the performance by storing it temporarily.
+
+2. How did marking DataFrames for broadcast affect the running time of the “best author” program above?
+The timing results without broadcasting but caching at join were:
+23.26s user 2.43s system 184% cpu 13.923 total
+After marking broadcast on the smaller 'averages' dataframe, the time resulted in:
+15.22s user 1.63s system 174% cpu 9.661 total
+
+This shows that marking the smaller dataframe for broadcasting before joining results in improvement of the running time.
+Broadcasting eliminates overhead costs and improves speed.

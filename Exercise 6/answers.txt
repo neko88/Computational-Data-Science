@@ -1,0 +1,64 @@
+Did more users use the search feature?
+(More precisely: did a different fraction of users have search count > 0?)
+Did users search more often?
+(More precisely: is the number of searches per user different?)
+
+1. For the A/B analysis, I believe that the analysis was manipulated by p-hacking.
+Our original questions in the study were:
+"Did more users use the search feature?" and "Did users search more often?"
+After the analysis and resulting a p-value of 0.168 and 0.141 to each question respectively, we see that they are greater than 0.05 thus
+we cannot reject the null hypothesis in that the mean of the unchanged vs. new design are not different.
+Once we realized this, we changed our analysis to focus only on instructors hoping that we would get a more
+statistically significant and satisfying result.
+The resulting p-values considering only instructors resulted in 0.052 and 0.045 respectively and compared to our first analysis
+the results are more satisfying. However, it does not answer our initial question and we only feel that perhaps the new design is significant because
+we hacked our analysis to only a group that may offer better results but misrepresents our original sample characteristics which was all users.
+
+2. As we would be performing tests on >2 groups, with a 95% confidence interval, we would perform n(n-1)/2 = 21 tests.
+However, more groups means less confidence, and so the probability of no inconrrect rejection of null is 0.95^(21) = 0.3406 and our
+level of significance becomes 0.6595/2=0.32975.
+
+
+3. After creating the data and plotting the original values, it was observed that
+the data were all left-skewed. Transformation was performed to make the data as close to normal as possible by
+taking taking the reciprocal of each data, followed by cubing them.
+Based on one run of the analysis of sorting random arrays, the resulting means were:
+
+	qs1	qs2	qs3	qs4	qs5	merge1	partition_sort
+qs1	1	1.7033719505102734e-284	2.846320014860535e-274	7.101191248683862e-24	9.353880329467869e-21	4.802667851575742e-31	0
+qs2		1	0.3147024662571926	1.5305582161857358e-177	1.240836270426028e-222	4.6659720704314e-213	0
+qs3			1	2.4865655205929457e-168	8.609526923905491e-212	6.864133692290437e-202	0
+qs4				1	0.11897616641400263	0.6441664846258112	0
+qs5					1	0.023205662742748892	0
+merge1						1	0
+partition_sort							1
+
+	qs1	qs2	qs3	qs4	qs5	merge1	partition_sort
+qs1	1	1.865759442135923e-210	1.2068938204434483e-203	1.9455395916394697e-16	1.959585629500766e-16	2.173205730153167e-16	0
+qs2		1	0.31604292132608136	5.544964091674771e-135	4.652377175203463e-149	2.3042123703297303e-173	0
+qs3			1	2.2894380944695173e-128	4.578993101471328e-142	8.125027994589718e-166	0
+qs4				1	0.7469428964492595	0.3921101768881473	0
+qs5					1	0.5903193858543972	0
+merge1						1	0
+partition_sort							1
+
+partition_sort    0.002589
+qs1               0.003728
+merge1             0.00385
+qs5               0.003886
+qs4               0.003893
+qs3               0.004459
+qs2               0.004486
+
+So, partition sort was the fastest while qs3 and qs2 were the slowest.
+
+The resulting pairs were as follows and sorted from smallest to largest values in both sets:
+T-Test Analysis: Comparing Algorithms - Means not Different
+ [('qs2', 'qs3'), ('qs4', 'merge1'), ('qs5', 'merge1'), ('qs4', 'qs5'), ('qs1', 'qs1'), ('qs2', 'qs2'), ('qs3', 'qs3'), ('qs4', 'qs4'), ('qs5', 'qs5'), ('merge1', 'merge1'), ('partition_sort', 'partition_sort')]
+As above, we do see that the qs2 and qs3 pair were found not to be significantly different as consistent with the mean speed ranking above.
+
+T-Test Analysis: Comparing Algorithms - Means Different
+ [('merge1', 'partition_sort'), ('qs4', 'partition_sort'), ('qs3', 'partition_sort'), ('qs2', 'partition_sort'), ('qs5', 'partition_sort'), ('qs1', 'partition_sort'), ('qs1', 'qs2'), ('qs1', 'qs3'), ('qs2', 'merge1'), ('qs3', 'merge1'), ('qs2', 'qs5'), ('qs3', 'qs5'), ('qs2', 'qs4'), ('qs3', 'qs4'), ('qs1', 'qs4'), ('qs1', 'qs5'), ('qs1', 'merge1')]
+Here, we see all sorting algorithms being significant in being different in means. The t-tests for each sort vs. partition_sort were consistently 0 as well.
+
+Notably, each paired test with partition_sort resulted in a p-value of 0.

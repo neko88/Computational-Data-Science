@@ -1,0 +1,52 @@
+1.Which model did the best for the colour-prediction task?
+ Can you give a theory about why?
+Do you have any theory about why RGB/LAB/HSV worked better for different models?
+
+Results with RGB to HSV:
+Bayesian classifier:    0.561 0.663
+kNN classifier:         0.722 0.704
+Rand forest classifier: 0.715 0.743
+The model that performed best when RGB was converted to HSV values was kNN classifier.
+
+Results with RGB to LAB:
+Bayesian classifier:    0.518 0.595
+kNN classifier:         0.676 0.689
+Rand forest classifier: 0.690 0.719
+
+Taking the mean score with the two models together:
+Bayesian classifier:    0.584
+kNN classifier:         0.698
+Rand forest classifier: 0.716
+The model that performed best when RGB was converted to LAB was Random Forest Classifier.
+
+On average, the random forest classifier performed better than Bayesian and kNN.
+It seems that it performs better since it is an ensemble learning, having the advantage of training data on multiple decision trees and
+combine the result of the predictions. As colour values are based on a scale, decision trees can simplify the process
+of predicting by branching based on if values fall below or above a number.
+Naive bayes may be affected by the zero frequency problem when predicting on test data and that
+it assumes that data will always be normally distributed. kNN's performance also drops when
+there is a large amount of data is needs to work with.
+Perhaps the models performed better on HSV colour values because the calculation from RGB to HSV is straightforward and results
+in positive values. LAB colours can take on negative values which may be added complexity for the models.
+
+
+
+2. Have a look at the cities in your validation data
+where the weather model makes the wrong prediction.
+Do you feel like the model is making reasonable mistakes?
+Can you think of any weather features that we could potentially
+add to make better predictions?
+
+The mistakes from the model resulted in most similar  cities, for example:
+Vancouver vs. Victoria
+Vancouver vs. Seattle
+Saskatoon vs. Regina and Winnipeg
+
+But some very different:
+Toronto vs. London
+Toronto vs. Chicago
+
+It may be because these cities have very similar weather pattern behaviour and would need much more specific features that the model
+could clearly differentiate patterns between them.
+If the data had more identifying features like longitude and latitude, it may be better in predicting because it indicates that
+some cities that are predicted very closely are actually located far from each other.
